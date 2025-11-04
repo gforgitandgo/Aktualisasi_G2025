@@ -7,7 +7,7 @@ from obspy.signal.spectral_estimation import get_nlnm, get_nhnm
 from obspy.signal.konnoohmachismoothing import konno_ohmachi_smoothing
 from obspy.signal.util import next_pow_2
 from obspy.signal import spectral_estimation
-from obspy.signal.hvsr import hvsr
+#from obspy.signal.hvsr import hvsr
 from datetime import datetime
 
 

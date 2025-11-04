@@ -264,6 +264,7 @@ if __name__ == "__main__":
             "ko_smooth_factor": 40.0,     # Faktor Konno-Ohmachi Smoothing (default 40)
             "hvsr_window_len": 20.0       # Panjang Window dalam detik (default 20s)
         }
+        #def process_mseed_and_xml(mseed_file: str, xml_file: str, psd_percentile: int = 50, ko_smooth_factor: float = 40.0, hvsr_window_len: float = 20.0):
         
         process_mseed_and_xml(
             mseed_file=example_mseed,

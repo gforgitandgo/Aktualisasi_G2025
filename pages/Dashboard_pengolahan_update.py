@@ -155,6 +155,9 @@ def main():
             xml_path = os.path.join(tmp_dir, uploaded_xml.name)
             mseed_path = os.path.join(tmp_dir, uploaded_mseed.name)
 
+            print(mseed_path,"def")
+            print(xml_path,"abc")
+
             with open(xml_path, "wb") as f:
                 f.write(uploaded_xml.read())
             with open(mseed_path, "wb") as f:
