@@ -15,7 +15,8 @@ def main():
     # ==========================
     # KONFIGURASI FOLDER & DB
     # ==========================
-    BASE_DIR = r"D:\Dashboard_integrasi2"
+    # BASE_DIR = r"D:\Dashboard_integrasi2"
+    BASE_DIR = os.getcwd()
     DATA_DIR = os.path.join(BASE_DIR, "data")
     REKAP_DIR = os.path.join(BASE_DIR, "Rekapitulasi Hasil Survei")
     DB_PATH = os.path.join(BASE_DIR, "rekap.db")

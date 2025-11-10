@@ -14,10 +14,14 @@ def main():
     # ===============================
     st.set_page_config(page_title="Dashboard Pengolahan Data Seismik", layout="wide")
 
-    OUTPUT_DIR = r"D:\Dashboard_integrasi2\Hasil_Analisis"
+    BASE_DIR = os.getcwd()
+    OUTPUT_DIR = os.getenv("OUTPUT_DIR") or "Hasil_Analisis"
+    # OUTPUT_DIR = r"D:\Dashboard_integrasi2\Hasil_Analisis"
+    OUTPUT_DIR = os.path.join(BASE_DIR, OUTPUT_DIR)
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-    BASE_DIR = r"D:\Dashboard_integrasi2"
-    LOGO_PATH = os.path.join(BASE_DIR, "logo_bmkg.png")
+    ASSET_PATH = os.getenv("ASSET_PATH") or "assets"
+    # BASE_DIR = r"D:\Dashboard_integrasi2"
+    LOGO_PATH = os.path.join(BASE_DIR,ASSET_PATH, "LogoBMKG.png")
 
     # ===============================
     # UTILITAS

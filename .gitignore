@@ -214,4 +214,19 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
-*/**.png
+analysis_results/**.png
+analysis_results/**.psd
+Hasil_Analisis/**.png
+Hasil_Analisis/**.psd
+Hasil_Analisis/**/**.png
+Hasil_Analisis/**/**.psd
+temp_files/**.xml
+temp_files/**.mseed
+temp_files/**.png
+temp_files/**.psd
+data_sop/**.pdf
+.vscode/
+Rekapitulasi Hasil Survei/**/**.pdf
+Rekapitulasi Hasil Survei/**/**.xml
+Rekapitulasi Hasil Survei/**.pdf
+Rekapitulasi Hasil Survei/**.xml

@@ -201,6 +201,8 @@ def process_mseed_and_xml(mseed_file: str, xml_file: str, psd_percentile: int = 
 
         try:
             print(f"🔍 Memproses PSD {station_code} - {channel}")
+            # from pdb import set_trace 
+            # set_trace()
             ppsd = PPSD(tr.stats, metadata=inv)
             ppsd.add(tr)
 

@@ -7,6 +7,11 @@ from datetime import datetime
 import platform
 from io import BytesIO
 import time
+from dotenv import load_dotenv
+from pdb import set_trace as sstt
+
+# Load environment variables from the .env file
+load_dotenv()
 
 # =========================
 # KONFIGURASI FOLDER
@@ -18,8 +23,9 @@ os.makedirs(SOP_FOLDER, exist_ok=True)
 # ==========================
 # KONFIGURASI FOLDER & DB
 # ==========================
-BASE_DIR = r"D:\Dashboard_integrasi2"
-LOGO_PATH = os.path.join(BASE_DIR, "logo_bmkg.png")
+# BASE_DIR = r"D:\Dashboard_integrasi2"
+ASSET_PATH= os.getenv("ASSET_PATH") or "assests"
+LOGO_PATH = os.path.join(BASE_DIR, ASSET_PATH,"LogoBMKG.png")
 
 # =========================
 # KONFIGURASI DASHBOARD
