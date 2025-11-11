@@ -7,6 +7,8 @@ from datetime import datetime
 import platform
 from io import BytesIO
 
+REKAP_PATH= os.getenv("REKAP_PATH") or "/"
+
 def main():
     # Tombol kembali ke dashboard utama
     if st.button("⬅️ Kembali ke Dashboard Utama"):
@@ -281,14 +283,9 @@ def main():
 
         st.divider()
         st.markdown("### 📁 Akses Folder Rekapitulasi")
-        if platform.system() == "Windows":
-            if st.button("🔍 Buka Folder Rekapitulasi Utama"):
-                if os.path.exists(REKAP_DIR):
-                    os.startfile(REKAP_DIR)
-                else:
-                    st.warning("Folder rekapitulasi utama tidak ditemukan.")
-        else:
-            st.code(REKAP_DIR)
+
+        st.link_button("View my results folder",REKAP_PATH)
+   
 
     else:
         st.info("Belum ada data rekapitulasi tersimpan.")

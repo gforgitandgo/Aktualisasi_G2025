@@ -4,6 +4,8 @@ import base64
 from datetime import datetime
 from Pengolahan_update import process_mseed_and_xml  # sesuaikan nama file prosesnya
 
+PSD_PATH= os.getenv("PSD_PATH") or "/"
+
 def main():
     # Tombol kembali ke dashboard utama
     if st.button("⬅️ Kembali ke Dashboard Utama"):
@@ -145,8 +147,18 @@ def main():
     st.markdown("---")
     st.subheader("Jalankan Analisis")
 
-    run_btn = st.button("Run Analysis")
+    # run_btn = st.button("Run Analysis")
 
+    # This creates a row
+    col1, col2 = st.columns(2)
+
+    with col1:
+        run_btn = st.button("Run Analysis")
+
+    with col2:
+        st.link_button("View my results folder", PSD_PATH)
+        
+        
     if run_btn:
         if uploaded_xml is None or uploaded_mseed is None:
             st.warning("⚠️ Harap upload kedua file XML dan MSEED terlebih dahulu.")
