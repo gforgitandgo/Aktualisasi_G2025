@@ -248,7 +248,10 @@ def main():
                     # set flag refresh biar rerun otomatis
                     st.session_state["refresh"] = True
                     st.session_state["saved_message"] = "✅ Hasil berhasil disimpan dan dashboard telah direset!"
-
+                    if os.path.exists(analysis_result_dir):
+                        for file in os.listdir(analysis_result_dir):
+                            src = os.path.join(analysis_result_dir, file)
+                            os.remove(src)
                 except Exception as e:
                     st.error(f"❌ Gagal menyimpan hasil: {e}")
 
