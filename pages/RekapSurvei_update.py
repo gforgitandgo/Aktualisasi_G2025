@@ -8,7 +8,13 @@ import platform
 from io import BytesIO
 
 REKAP_PATH= os.getenv("REKAP_PATH") or "/"
+local = os.getenv("LOCAL") or True
 
+if local == "false" or local== "False" or str(local) == "0":
+    local = False
+    
+    
+    
 def main():
     # Tombol kembali ke dashboard utama
     if st.button("⬅️ Kembali ke Dashboard Utama"):
@@ -281,23 +287,23 @@ def main():
 
         st.write(f"Halaman {st.session_state.page} dari {total_pages}")
 
-        st.divider()
-        st.markdown("### 📁 Akses Folder Rekapitulasi")
+        if not local:
+            st.divider()
+            st.markdown("### 📁 Akses Folder Rekapitulasi")
 
-        st.link_button("View my results folder",REKAP_PATH)
-   
+            st.link_button("View my results folder",REKAP_PATH)
+        else:
+            st.divider()
+            st.markdown("### 📁 Akses Folder Rekapitulasi")
+            if platform.system() == "Windows":
+                if st.button("🔍 Buka Folder Rekapitulasi Utama"):
+                    if os.path.exists(REKAP_DIR):
+                        os.startfile(REKAP_DIR)
+                    else:
+                        st.warning("Folder rekapitulasi utama tidak ditemukan.")
+            else:
+                st.code(REKAP_DIR)   
 
-        # st.divider()
-        # st.markdown("### 📁 Akses Folder Rekapitulasi")
-        # if platform.system() == "Windows":
-        #     if st.button("🔍 Buka Folder Rekapitulasi Utama"):
-        #         if os.path.exists(REKAP_DIR):
-        #             os.startfile(REKAP_DIR)
-        #         else:
-        #             st.warning("Folder rekapitulasi utama tidak ditemukan.")
-        # else:
-        #     st.code(REKAP_DIR)   
-        
     else:
         st.info("Belum ada data rekapitulasi tersimpan.")
 

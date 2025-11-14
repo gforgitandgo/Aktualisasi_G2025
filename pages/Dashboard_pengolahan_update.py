@@ -3,9 +3,16 @@ import os
 import base64
 from datetime import datetime
 from Pengolahan_update import process_mseed_and_xml  # sesuaikan nama file prosesnya
+import platform
 
 PSD_PATH= os.getenv("PSD_PATH") or "/"
+BASE_DIR = os.getcwd()
+REKAP_DIR = os.path.join(BASE_DIR, "Hasil_Analisis")
+local = os.getenv("LOCAL") or True
 
+if local == "false" or local== "False" or str(local) == "0":
+    local = False
+    
 def main():
     # Tombol kembali ke dashboard utama
     if st.button("⬅️ Kembali ke Dashboard Utama"):
@@ -156,8 +163,25 @@ def main():
         run_btn = st.button("Run Analysis")
 
     with col2:
-        st.link_button("View my results folder", PSD_PATH)
         
+        if not local:
+            st.link_button("View my results folder", PSD_PATH)
+            # st.divider()
+            # st.markdown("### 📁 Akses Folder Rekapitulasi")
+
+            # st.link_button("View my results folder",REKAP_PATH)
+        else:
+            # st.divider()
+            # st.markdown("### 📁 Akses Folder Rekapitulasi")
+            if platform.system() == "Windows":
+                if st.button("🔍 Buka Folder Rekapitulasi Utama"):
+                    if os.path.exists(REKAP_DIR):
+                        os.startfile(REKAP_DIR)
+                    else:
+                        st.warning("Folder rekapitulasi utama tidak ditemukan.")
+            else:
+                st.code(REKAP_DIR)           
+
         
     if run_btn:
         if uploaded_xml is None or uploaded_mseed is None:
